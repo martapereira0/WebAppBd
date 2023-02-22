@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- 
+  create a table resulting from the command "desc (name of the table)" on sql database
+-->
+
+<div class="head-container">
+
+    <h1>{{ table }}</h1>
+    <div class="head-subcontainer">
+    </div>
+</div>
+<table>
+    <thead>
+        <tr>
+            {% for column in keys %}
+            <th>{{ column }}</th>
+            {% endfor %}
+        </tr>
+    {% for x in fields %}
+    <tr>
+        {% for column in keys %}
+        <td>{{x[column]}}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+<l1>Base de Dados 2022</l1> 
+
+{% endblock %}

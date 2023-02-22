@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="head-container">
+
+    <h1>{{ table }}</h1>
+    <div class="head-subcontainer">
+
+        <a href=/tables/VINHO > Descrição da tabela</a>
+    </div>
+</div>
+
+
+  <table> 
+    <tr>
+        <th><b>IdVinho</b></th>
+        <th><b>Nome</b></th>
+        <th><b>Ano</b></th>
+        <th><b>Etiqueta</b></th>
+        <th><b>PrecoMin</b></th>
+        <th><b>PrecoMax</b></th>
+        <th><b>PercAlcool</b></th>
+        <th><b>Casta</b></th>
+    </tr>
+   
+    {% for vinho in vinhos %}
+    <tr>
+        <td><a href="/VINHO/{{ vinho.IdVinho }}">{{ vinho.IdVinho }}</a></td>
+        <td>{{ vinho.Nome }}</td>
+        <td>{{ vinho.Ano }}</td>
+        <td>{{ vinho.Etiqueta }}</td>
+        <td>{{ vinho.PrecoMin }}</td>
+        <td>{{ vinho.PrecoMax }}</td>
+        <td>{{ vinho.PercAlcool }}</td>
+        <td>{{ vinho.Casta }}</td>   
+    </tr>
+    {% endfor %}
+  </table>
+
+
+
+<l1>Base de Dados 2022</l1> 
+
+{% endblock %}

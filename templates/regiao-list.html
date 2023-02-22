@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="head-container">
+
+    <h1> Região </h1>
+    <div class="head-subcontainer">
+
+        <a href=/tables/REGIAO > Descrição da tabela</a>
+    </div>
+</div>
+
+
+  <table> 
+    <tr>
+        <th><b>IdRegiao</b></th>
+        <th><b>Nome</b></th>
+    </tr>
+   
+    {% for regiao in regioes %}
+    <tr>
+        <td><a href="/REGIAO/{{ regiao.IdRegiao }}">{{ regiao.IdRegiao }}</a></td>
+        <td>{{ regiao.Nome }}</td> 
+    </tr>
+    {% endfor %}
+  </table>
+
+
+
+<l1>Base de Dados 2022</l1> 
+
+{% endblock %}

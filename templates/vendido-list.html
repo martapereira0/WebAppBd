@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="head-container">
+
+    <h1> VENDIDO </h1>
+    <div class="head-subcontainer">
+
+        <a href=/tables/VENDIDO > Descrição da tabela</a>
+    </div>
+</div>
+
+
+  <table> 
+    <tr>
+        <th><b>IdVinho</b></th>
+        <th><b>IdCompra</b></th>
+    </tr>
+   
+    {% for v in vendidos %}
+    <tr>
+        <td><a href="/VINHO/{{ v.IdVinho }}">{{ v.IdVinho }}</a></td>
+        <td><a href="/NOMELOJA/{{ v.IdCompra }}">{{ v.IdCompra }}</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+
+
+
+<l1>Base de Dados 2022</l1> 
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ loja.NomeLoja }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+  <h2>Mais sobre a Loja</h2>
+  <p>
+    <b>Id da Loja: </b>{{ loja.IdCompra }}
+  </p>
+  
+  <p>
+    <b>Nome da Loja: </b>{{ loja.NomeLoja }}
+  </p>
+  
+  </p>
+
+
+  <p>
+    <b>Vinho: </b><ul>
+      {% for vinho in vinhos %}
+      <p><a href="/VINHO/{{ vinho.IdVinho }}">{{ vinho.IdVinho }}</a>, {{ vinho.Nome }}</p>
+      {% endfor %}
+    </ul>
+  </p>
+
+
+{% endblock %}

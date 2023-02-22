@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="head-container">
+
+    <h1> Classificação </h1>
+    <div class="head-subcontainer">
+
+        <a href=/tables/CLASSIFICACAO > Descrição da tabela</a>
+    </div>
+</div>
+
+
+  <table> 
+    <tr>
+        <th><b>IdClass</b></th>
+        <th><b>NomeRevisores</b></th>
+        <th><b>Classificacao</b></th>
+        <th><b>NotaAdicional</b></th>
+
+    </tr>
+   
+    {% for c in classificacoes %}
+    <tr>
+        <td><a href="/CLASSIFICACAO/{{ c.IdClass }}">{{ c.IdClass }}</a></td>
+        <td>{{ c.NomeRevisores }}</td>
+        <td>{{ c.Classificacao }}</td>
+        <td>{{ c.NotaAdicional }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+
+
+<l1>Base de Dados 2022</l1> 
+
+{% endblock %}

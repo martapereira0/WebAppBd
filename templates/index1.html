@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Base de Dados de Vinhos🍷{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<img src="/static/wine.png" alt="Base de Dados (CC2005)" style="width:1200px;height:auto;">
+
+<h2>Sobre</h2>
+<p> Esta aplicação web foi desenvolvida pela Marta Pereira e pelo Francisco Ribeiro para a cadeira de Base de Dados (CC2005).
+  O intuito deste trabalho é facilitar a escolha de uma garrafa de vinho permitindo a consulta de vários atributos, bem como a sua classificação.
+  Esta aplicação foi construida a partir de
+<a href="https://pymysql.readthedocs.io/">PyMySQL</a>,
+<a href="https://flask.palletsprojects.com">Flask</a>, e
+<a href="https://jinja.palletsprojects.com">Jinja</a>.
+</p>
+<p>Os dados foram extraídos do <a href="https://osvinhos.blogspot.com/">BlogDosVinhos</a>.</p>
+
+
+<h2>Acesso a todas as tabelas da base de dados</h2>
+<li>
+  <a href="/VINHO">VINHO</a>
+</li>
+<li>
+  <a href="/PRODUTOR">PRODUTOR</a>
+</li>
+<li>
+  <a href="/REGIAO">REGIAO</a>
+</li>
+<li>
+  <a href="/TIPO">TIPO</a>
+</li>
+<li>
+  <a href="/CLASSIFICACAO">CLASSIFICACAO</a>
+</li>
+<li>
+  <a href="/VENDIDO">VENDIDO</a>
+</li>
+<li>
+  <a href="/NOMELOJA">NOMELOJA</a>
+</li>
+
+<h2>Algumas estatísticas da base de dados:</h2>
+<table>
+<tr>
+  <th>Itens</th>
+  <th>Quantidade</th>
+</tr>
+<tr>
+  <td>Vinhos</td>
+  <td>{{ stats.vinhos }}</td>
+</tr>
+<tr>
+  <td>Produtores</td>
+  <td>{{ stats.produtores }}</td>
+</tr>
+<tr>
+  <td>Regioes</td>
+  <td>{{ stats.regioes }}</td>
+</tr>
+</table>
+
+
+<h2>Algumas funcionalidades: </h2>
+
+<h5>Estou indeciso, ajuda me a escolher <form action="/VINHO/{{n}}">
+  <input type="submit" value="Vinho Aleatório🍷" />
+</form></h5>
+
+
+
+<h3>Vinhos:</h3>
+<p>
+   <a href="/VINHO">Tabela "VINHO"</a>
+</p>
+<p>Mais informações sobre um vinho:
+<form name="vid" action="javascript:window.open('/VINHO/'+document.forms['vid'].elements['id'].value,'_self')">
+   Vinho Id:<input value="1" name="id" type="number" min="1"/><input type="submit" value="Obter"/>
+</form>
+</p>
+
+<p>Pesquisa pelo nome:
+<form name="vsearch" action="javascript:window.open('/VINHO/search/'+document.forms['vsearch'].elements['expr'].value,'_self')">
+  <input name="expr" id="expr" value="" required/>
+  <input type="submit" value="Pesquisar"/>
+</form>
+</p>
+
+<h3>Produtores: </h3>
+<p>
+   <a href="/PRODUTOR">Tabela "PRODUTOR"</a>
+</p>
+<p>Mais informações sobre um produtor:
+<form name="pid" action="javascript:window.open('/PRODUTOR/'+document.forms['pid'].elements['id'].value,'_self')">
+   Produtor Id:<input value="1" name="id" type="number" min="1"/><input type="submit" value="Obter"/>
+</form>
+</p>
+
+<p>Pesquisa pelo nome:
+  <form name="psearch" action="javascript:window.open('/PRODUTOR/search/'+document.forms['psearch'].elements['expr'].value,'_self')">
+    <input name="expr" id="expr" value="" required/>
+    <input type="submit" value="Pesquisar"/>
+  </form>
+</p>
+
+<h3>Regiões</h3>
+<p>
+   <a href="/REGIAO">Tabela "REGIAO"</a>
+</p>
+
+<p>Mais informações sobre uma região:
+<form name="rid" action="javascript:window.open('/REGIAO/'+document.forms['rid'].elements['id'].value,'_self')">
+   Região Id:<input value="1" name="id" type="number" min="1"/><input type="submit" value="Obter"/>
+</form>
+</p>
+
+
+{% endblock %}

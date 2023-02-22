@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ vinho.Nome }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Informações do vinho</h2>
+  <p>
+    <b>Id do Vinho: </b>{{ vinho.IdVinho }}
+  </p>
+  <p>
+    <b>Nome: </b>{{ vinho.Nome }}
+  </p>
+  <p>
+    <b>Ano: </b>{{ vinho.Ano}}
+  </p>
+  <p>
+    <b>Etiqueta: </b>{{ vinho.Etiqueta }}
+  </p>
+  <p>
+    <b>Preço mínimo (€):</b>{{ vinho.PrecoMin }}
+  </p>
+  <p>
+    <b>Preço máximo (€): </b>{{ vinho.PrecoMax }}
+  </p>
+  <p>
+    <b>Percentagem de Alcool (%): </b>{{ vinho.PercAlcool }}
+  </p>
+  <p>
+    <b>Casta: </b>{{ vinho.Casta }}
+  </p>
+  <p>
+    <b>Link do blog: </b><a href="{{ vinho.LinkBlog }}">{{ vinho.LinkBlog }}</a>
+  </p>
+
+  <p>
+    <b>Tipo: </b><ul>
+      {% for t in tipo %}
+      <p><a href="/TIPO/{{ t.IdTipo }}">{{ t.IdTipo }}</a>, {{ t.NomeTipo }}</p>
+      {% endfor %}
+    </ul>
+  </p>
+  <p>
+    <b>Região: </b><ul>
+    {% for t in regiao %}
+    <p><a href="/REGIAO/{{ t.IdRegiao }}">{{ t.IdRegiao }}</a>, {{ t.Nome }}</p>
+    {% endfor %}
+    </ul>
+  </p>
+  <p>
+    <b>Produtor: </b><ul>
+    {% for t in produtor %}
+    <p><a href="/PRODUTOR/{{ t.IdProdutor }}">{{ t.IdProdutor }}</a>, {{ t.Nome }}</p>
+    {% endfor %}
+    </ul>
+  </p>
+  <p>
+    <b>Classificação: </b><ul>
+    {% for t in classificacao %}
+    <p><a href="/CLASSIFICACAO/{{ t.IdClass }}">{{ t.IdClass }}</a>  ,  Avaliação: {{ t.Classificacao }}</p>
+
+
+    {% endfor %}
+    </ul>
+  </p>
+  <p>
+    <b>Onde Comprar: </b><ul>
+    {% for t in loja %}
+    <p><a href="/NOMELOJA/{{ t.IdCompra }}">{{ t.IdCompra }}</a>, {{ t.Loja }}</p>
+    {% endfor %}
+    </ul>
+  </p>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %} Classificação {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Mais sobre a classificação</h2>
+  <p>
+    <b>Id da Classificação: </b>{{ classificacao.IdClass }}
+  </p>
+  <p>
+    <b>Revisore(s): </b>{{ classificacao.NomeRevisores}}
+  </p>
+  <p>
+    <b>Classificação: </b>{{ classificacao.Nota }}
+  </p>
+  <p>
+    <b>Nota adicionals: </b>{{ classificacao.NotaAdicional }}
+  </p>
+
+  <p>
+    <b>Vinho: </b><ul>
+      {% for vinho in vinho %}
+      <p><a href="/VINHO/{{ vinho.IdVinho }}">{{ vinho.IdVinho }}</a>, {{ vinho.Nome }}</p>
+      {% endfor %}
+    </ul>
+  </p>
+  
+  
+{% endblock %}

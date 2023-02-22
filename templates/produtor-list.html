@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="head-container">
+
+    <h1> Produtor </h1>
+    <div class="head-subcontainer">
+
+        <a href=/tables/PRODUTOR > Descrição da tabela</a>
+    </div>
+</div>
+
+
+  <table> 
+    <tr>
+        <th><b>IdProdutor</b></th>
+        <th><b>Nome</b></th>
+    </tr>
+   
+    {% for produtor in produtores %}
+    <tr>
+        <td><a href="/PRODUTOR/{{ produtor.IdProdutor }}">{{ produtor.IdProdutor }}</a></td>
+        <td>{{ produtor.Nome }}</td> 
+    </tr>
+    {% endfor %}
+  </table>
+
+
+
+<l1>Base de Dados 2022</l1> 
+
+{% endblock %}

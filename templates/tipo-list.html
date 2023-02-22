@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="head-container">
+
+    <h1> Tipo de Vinho </h1>
+    <div class="head-subcontainer">
+
+        <a href=/tables/TIPO > Descrição da tabela</a>
+    </div>
+</div>
+
+
+  <table> 
+    <tr>
+        <th><b>IdTipo</b></th>
+        <th><b>NomeTipo</b></th>
+    </tr>
+   
+    {% for tipo in tipos %}
+    <tr>
+        <td><a href="/TIPO/{{ tipo.IdTipo }}">{{ tipo.IdTipo }}</a></td>
+        <td>{{ tipo.NomeTipo }}</td> 
+    </tr>
+    {% endfor %}
+  </table>
+
+
+
+<l1>Base de Dados 2022</l1> 
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Vinho da região {{regiao.Nome}} do tipo {{ tipo.NomeTipo }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+  <h2>Mais sobre a região</h2>
+  <p>
+    <b>Id da região: </b>{{ regiao.IdRegiao }}
+  </p>
+  
+  <p>
+    <b>Nome da região: </b>{{ regiao.Nome }}
+  </p>
+  
+
+  <p>
+    <b>Vinho(s): </b><ul>
+      {% for vinho in vinhos %}
+      <p><a href="/VINHO/{{ vinho.IdVinho }}">{{ vinho.IdVinho }}</a>, {{ vinho.Nome }}</p>
+      {% endfor %}
+    </ul>
+  </p>
+
+
+{% endblock %}

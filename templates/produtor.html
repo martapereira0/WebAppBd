@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ produtor.Nome }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  
+  <h2>Mais sobre o produtor</h2>
+  <p>
+    <b>Id do produtor: </b>{{ produtor.IdProdutor }}
+  </p>
+  <p>
+    <b>Nome do produtor: </b>{{ produtor.Nome }}
+  </p>
+  
+
+  <p>
+    <b>Vinho: </b><ul>
+      {% for vinho in vinhos %}
+      <p><a href="/VINHO/{{ vinho.IdVinho }}">{{ vinho.IdVinho }}</a>, {{ vinho.Nome }}</p>
+      {% endfor %}
+    </ul>
+  </p>
+  
+  
+{% endblock %}

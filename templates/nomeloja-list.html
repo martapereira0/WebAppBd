@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="head-container">
+
+    <h1> Lojas </h1>
+    <div class="head-subcontainer">
+
+        <a href=/tables/NOMELOJA > Descrição da tabela</a>
+    </div>
+</div>
+
+
+  <table> 
+    <tr>
+        <th><b>IdCompra</b></th>
+        <th><b>NomeLoja</b></th>
+    </tr>
+   
+    {% for loja in lojas %}
+    <tr>
+        <td><a href="/NOMELOJA/{{ loja.IdCompra }}">{{ loja.IdCompra }}</a></td>
+        <td>{{ loja.NomeLoja }}</td> 
+    </tr>
+    {% endfor %}
+  </table>
+
+
+
+<l1>Base de Dados 2022</l1> 
+
+{% endblock %}
